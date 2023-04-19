@@ -97,8 +97,8 @@ app.post("/attachmentemail", async function (request, response) {
           `,
         attachments: [
           {
-            filename: file[0],
-            path: `./attachments/${file[0]}`,
+            filename: file[1],
+            path: `./attachments/${file[1]}`,
           },
         ],
       },
@@ -107,7 +107,7 @@ app.post("/attachmentemail", async function (request, response) {
           console.log("error", err);
         } else {
           console.log("email sent successfully");
-          fs.unlink(`./attachments/${file[0]}`, function (err) {
+          fs.unlink(`./attachments/${file[1]}`, function (err) {
             if (err) {
               console.log("error");
             } else {
@@ -180,7 +180,7 @@ ${phone}
         console.log("error", err);
       } else {
         console.log("email sent successfully");
-        fs.unlink(`./attachments/${file[0]}`, function (err) {
+        fs.unlink(`./attachments/${file[1]}`, function (err) {
           if (err) {
             console.log("error");
           } else {
