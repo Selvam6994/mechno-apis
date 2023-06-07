@@ -14,7 +14,7 @@ app.use(CORS());
 app.use(express.static("./attachments"));
 app.use(express.json());
 app.use(bodyParser.json());
-console.log(process.env.USER_MAIL_ID)
+console.log(process.env.USER_MAIL_ID);
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./attachments");
@@ -34,7 +34,6 @@ let upload = multer({
 });
 
 let uploadHandler = upload.single("file");
-
 
 app.post("/upload", async (request, response, next) => {
   uploadHandler(request, response, function (err) {
@@ -64,7 +63,7 @@ app.post("/attachmentemail", async function (request, response) {
     check,
     otheroption,
   } = await request.body;
-  check.push(otheroption)
+  check.push(otheroption);
   fs.readdir("./attachments", (err, file) => {
     console.log(file);
 
@@ -118,13 +117,7 @@ app.post("/attachmentemail", async function (request, response) {
       }
     );
 
-    // transporter.sendMail(info, (err) => {
-    //   if (err) {
-    //     console.log("error", err);
-    //   } else {
-    //     console.log("email sent successfully");
-    //   }
-    // });
+ 
 
     response.status(200).send({
       message: "email sent successfully",
@@ -146,7 +139,7 @@ app.post("/attachmentemail", async function (request, response) {
 app.post("/onlymail", async (request, response) => {
   const { companyname, name, email, phone, message, check, otheroption } =
     await request.body;
- check.push(otheroption)
+  check.push(otheroption);
   let transporter = nodeMailer.createTransport({
     service: "gmail",
     auth: {
