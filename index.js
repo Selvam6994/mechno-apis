@@ -117,8 +117,6 @@ app.post("/attachmentemail", async function (request, response) {
       }
     );
 
- 
-
     response.status(200).send({
       message: "email sent successfully",
       id: process.env.USER_MAIL_ID,
